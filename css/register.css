@@ -3,7 +3,9 @@ body{
     display: flex;
     flex-direction: column;
     font-family: montserrat, serif;
-    background-size: 50px;
+    background-image: url(../images/background-01.png);
+    background-position-y: -50px;
+    background-size: 150px;
     background-repeat: repeat;
 }
 .hidden{
@@ -13,9 +15,9 @@ body{
 header{
     display: inline-block;
     text-align: left;
-    margin-left: 40px;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    margin-left: 35px;
+    margin-top: 30px;
+    margin-bottom: 75px;
 }
 
 #title{
@@ -23,22 +25,35 @@ header{
     font-family: cardo, serif;
     font-weight: 700;
     font-style: normal;
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
 }
-
+header p{
+    margin: 0px 0px 0px 10px;
+}
 .accent{
     color: #4A8C7A;
 }
-
-#Name, #Email, #Password, #PasswordConfirm{
+.firstname, .lastname, .email, .password, .confirm{
+    margin-bottom: 40px;
+}
+.password{
+    text-align: left;
+}
+.password p{
+    font-size: 0.75em;
+}
+#Firstname, #Lastname, #Email, #Password, #PasswordConfirm{
+    color: #002522;
     border: none;
     border-bottom: 1px solid #4A8C7A;
     padding-bottom: 7px;
-    width: 400px;
     font-family: montserrat;
     font-size: 1em;
-    margin-bottom: 40px;
+    background-color: transparent;
+    width: 400px;
 }
-
 .img{
     height: 40px;
 }
@@ -107,11 +122,12 @@ main form{
 #facebook{
     background-color: #4267B2;
     color: white;
+    width: 280px;
 }
 
 #google{
     background-color: #FFFFFF;
-    width: 270px;
+    width: 280px;
 }
 
 #facebook img{
@@ -121,4 +137,14 @@ main form{
 #google img{
     margin-left: 7.5px;
     margin-right: 5px;
+}
+#switch{
+    display: inline-block;
+    text-align: left;
+    margin-left: 50px;
+}
+#switch a{
+    text-decoration: none;
+    color: #002522;
+    font-weight: bold;
 }

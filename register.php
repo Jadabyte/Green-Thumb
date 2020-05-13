@@ -10,31 +10,33 @@
 </head>
 <body>
     <header>
-        <h1 id="title">Create <strong class="accent">an account</strong></h1>
+        <h1 id="title">Welcome <strong class="accent title">back.</strong></h1>
+        <p id="subHead">Sign in to continue</p>
     </header>
     <main id="registerForm">
         <form action="" method="POST">
-            <div>
-                <label for="Name"></label>
-                <input type="text" id="Name" name="name" placeholder="Firstname">
+            <div class="firstname hidden">
+                <label for="Firstname"></label>
+                <input type="text" id="Firstname" name="name" placeholder="Firstname">
             </div>
 
-            <div>
-                <label for="Name"></label>
-                <input type="text" id="Name" name="name" placeholder="Lastname">
+            <div class="lastname hidden">
+                <label for="Lastname"></label>
+                <input type="text" id="Lastname" name="name" placeholder="Lastname">
             </div>
 
-            <div>
+            <div class="email">
                 <label for="Email"></label>
                 <input type="text" id="Email" name="email" placeholder="Email">
             </div>
 
-            <div>
+            <div class="password">
                 <label for="Password"></label>
-                <input type="text" id="Password" name="password" placeholder="Password">
+                <input type="password" id="Password" name="password" placeholder="Password">
+                <p id="forgot">Forgot your password?</p>
             </div>
 
-            <div class="hidden">
+            <div class="hidden confirm">
                 <label for="PasswordConfirm"></label>
                 <input type="text" id="PasswordConfirm" name="passwordConfirm" placeholder="Confirm Password">
             </div>
@@ -60,5 +62,12 @@
             <p>Continue with Google</p>
         </div>
     </footer>
+
+    <div id="switch">
+        <p id="switchText">If you don't have an account yet, <a id="register" href="#">sign up here.</a></p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/register.js"></script>
 </body>
 </html>
