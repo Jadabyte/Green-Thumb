@@ -123,11 +123,13 @@ main form{
     background-color: #4267B2;
     color: white;
     width: 280px;
+    cursor: pointer;
 }
 
 #google{
     background-color: #FFFFFF;
     width: 280px;
+    cursor: pointer;
 }
 
 #facebook img{

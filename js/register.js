@@ -3,7 +3,6 @@ $(document).ready(function(){
     let toggled = 0
     $("#Password").on("input", function(e){
         if(toggledConfirm === 0 && toggled === 1){
-            console.log("show");
             $(".confirm").slideToggle();
             toggledConfirm = 1;
         }
@@ -23,9 +22,9 @@ $(document).ready(function(){
             $("#switchText").append($('<a></a>').attr('id', 'login').attr('href', '').html("log in here."));
 
             $("header").animate({'margin-bottom': '30px'});
+            $("header").data("state", 1);
 
             toggled = 1;
-            e.preventDefault();
         }
     });
 
@@ -42,11 +41,14 @@ $(document).ready(function(){
 
             $("#switchText").html("If you don't have an account yet, ");
             $("#switchText").append($('<a></a>').attr('id', 'register').attr('href', '').html("sign up here."));
-
-            $("header").animate({'margin-bottom': '75px'});
+            
             if(toggledConfirm === 1){
                 $(".confirm").slideToggle();
             }
+
+            $("header").animate({'margin-bottom': '75px'});
+            $("header").data("state", 1);
+
             toggled = 0;
         }
 
