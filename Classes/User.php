@@ -1,5 +1,5 @@
 <?php
-    include_once(__DIR__ . "Classes/Db.php");
+    include_once(__DIR__ . "/Db.php");
 
     class User{
         private $firstname;
