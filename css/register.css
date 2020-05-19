@@ -122,3 +122,9 @@ main form{
     margin-left: 7.5px;
     margin-right: 5px;
 }
+
+@media(max-width: 500px){
+    body{
+        display: hidden;
+    }
+}
