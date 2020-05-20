@@ -5,12 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/platform.css">
     <title>Platform</title>
 </head>
 <body>
     <header>
-        <h1 id="title">My <strong class="accent title">Plants.</strong></h1>
-        <img src="" alt="Messages">
+        <h1 id="title">Share <strong class="accent title">your goods.</strong></h1>
+        <img id="messages" src="images/message.png" alt="Messages">
     </header>
     <main>
         <div>

@@ -1,10 +1,13 @@
 body{
+    margin: 0;
+    padding: 0;
     font-family: montserrat, serif;
     font-weight: bold;
     color: #015A39;
     font-size: 0.75em;
     display: flex;
     justify-content: center;
+    position: fixed;
 }
 nav{
     width: 100%;

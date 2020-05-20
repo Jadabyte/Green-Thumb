@@ -4,7 +4,6 @@ body{
     flex-direction: column;
     font-family: montserrat, serif;
     background-color: #F6F6F6;
-    background-image: none;
 }
 header{
     text-align: left;
@@ -36,14 +35,15 @@ article{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     border-radius: 10px;
     margin: 0px 30px 30px 0px;
     cursor: pointer;
+    box-shadow: 6px 6px 29px -10px rgba(0,0,0,0.3);
 }
 article h2{
     background-color: #ffffff;
