@@ -4,6 +4,7 @@ body{
     flex-direction: column;
     font-family: montserrat, serif;
     background-color: #F6F6F6;
+    width: 100%;
 }
 header{
     text-align: left;
@@ -23,4 +24,52 @@ header{
 }
 .accent{
     color: #4A8C7A;
+}
+main{
+    background-color: #ffffff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#profHead{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#profPic{
+    background-image: url(https://images.pexels.com/photos/4348270/pexels-photo-4348270.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#profNav{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+#profNav article{
+    font-family: cardo, serif;
+    font-weight: bold;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+.navIcon{
+    width: 50px;
+    height: 50px;
+}
+#profNav article p{
+    margin: 0;
 }

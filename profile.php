@@ -13,8 +13,8 @@
         <h1 id="title">My <strong class="accent title">Profile.</strong></h1>
     </header>
     <main>
-        <div>
-            <img src="" alt="User Photo">
+        <div id="profHead">
+            <div id="profPic"></div>
             <h2>Thomas Anderson</h2>
             <article>
                 <p>See my profile</p>
@@ -22,21 +22,21 @@
             </article>
         </div>
 
-        <div>
+        <div id="profNav">
             <article>
-                <img src="" alt="Plant Guide">
+                <img class="navIcon" src="images/prof-nav-01" alt="Plant Guide">
                 <p>Plant Guide</p>
-                <img src="" alt="Plant Guide">
+                <img src="images/nav-arrow" alt="Plant Guide">
             </article>
             <article>
-                <img src="" alt="My Favourites">
+                <img class="navIcon" src="images/prof-nav-02" alt="My Favourites">
                 <p>My Favourites</p>
-                <img src="" alt="My Favourites">
+                <img src="images/nav-arrow" alt="My Favourites">
             </article>
             <article>
-                <img src="" alt="Settings">
+                <img class="navIcon" src="images/prof-nav-03" alt="Settings">
                 <p>Settings</p>
-                <img src="" alt="Settings">
+                <img src="images/nav-arrow" alt="Settings">
             </article>
         </div>
     </main>

@@ -4,6 +4,7 @@ body{
     flex-direction: column;
     font-family: montserrat, serif;
     background-color: #F6F6F6;
+    margin: 0;
 }
 header{
     text-align: left;
