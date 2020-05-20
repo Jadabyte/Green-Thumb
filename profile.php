@@ -23,21 +23,27 @@
         </div>
 
         <div id="profNav">
-            <article>
-                <img class="navIcon" src="images/prof-nav-01" alt="Plant Guide">
-                <p>Plant Guide</p>
-                <img src="images/nav-arrow" alt="Plant Guide">
-            </article>
-            <article>
-                <img class="navIcon" src="images/prof-nav-02" alt="My Favourites">
-                <p>My Favourites</p>
-                <img src="images/nav-arrow" alt="My Favourites">
-            </article>
-            <article>
-                <img class="navIcon" src="images/prof-nav-03" alt="Settings">
-                <p>Settings</p>
-                <img src="images/nav-arrow" alt="Settings">
-            </article>
+            <div>
+                <article id="article-01" class="profBtn">
+                    <img class="navIcon" src="images/prof-nav-01" alt="Plant Guide">
+                    <p>Plant Guide</p>
+                    <img class="linkArrow" src="images/nav-arrow" alt="Plant Guide">
+                </article>
+            </div>
+            <div>
+                <article id="article-02" class="profBtn">
+                    <img class="navIcon" src="images/prof-nav-02" alt="My Favourites">
+                    <p>My Favourites</p>
+                    <img class="linkArrow" src="images/nav-arrow" alt="My Favourites">
+                </article>
+            </div>
+            <div>
+                <article id="article-03" class="profBtn">
+                    <img class="navIcon" src="images/prof-nav-03" alt="Settings">
+                    <p>Settings</p>
+                    <img class="linkArrow" src="images/nav-arrow" alt="Settings">
+                </article>
+            </div>
         </div>
     </main>
     
