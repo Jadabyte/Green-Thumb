@@ -19,6 +19,8 @@ nav{
     text-align: center;
     background-color: #ffffff;
     padding-top: 10px;
+    display: relative;
+    z-index: 10;
 }
 div{
     width: 65px;

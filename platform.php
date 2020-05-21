@@ -5,6 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
+    <link rel="stylesheet" href="https://use.typekit.net/ayy1bcm.css">
     <link rel="stylesheet" href="css/platform.css">
     <title>Platform</title>
 </head>
@@ -14,12 +16,12 @@
         <img id="messages" src="images/message.png" alt="Messages">
     </header>
     <main>
-        <div>
-            <div>
-                <img src="" alt="User Photo">
+        <div class="post">
+            <div class="postHead">
+                <img class="userImg" src="https://randomuser.me/api/portraits/women/95.jpg" alt="User Photo">
                 <h3>Sasha Ho</h3>
             </div>
-            <img src="" alt="Item">
+            <img class="postImg" src="https://images.pexels.com/photos/143133/pexels-photo-143133.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Item">
             <p>
                 I have 2 kilos of carrots lying around. 
                 Feel free to pick them up.
