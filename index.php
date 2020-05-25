@@ -16,17 +16,19 @@
     </header>
 
     <main>
-        <article>
-            <h2>Monstera</h2>
+        <article class="plant" id="montsera" data-name="monstera">
+            <h2 class="plantName">Monstera</h2>
         </article>
 
-        <article>
+        <article class="plant" data-name="tomato">
             <h2>Tomato</h2>
         </article>
 
-        <article>
+        <article class="plant" data-name="basil">
             <h2>Basil</h2>
         </article>
     </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

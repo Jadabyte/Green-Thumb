@@ -5,10 +5,12 @@ body{
     font-family: montserrat, serif;
     background-color: #F6F6F6;
     margin: 0;
+    width: 100%;
 }
 header{
     text-align: left;
-    margin-left: 35px;
+    width: 85%;
+    margin: auto;
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -28,21 +30,22 @@ header{
 main{
     width: 85%;
     margin: auto;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 190px);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
 }
 article{
     background-image: url(https://images.pexels.com/photos/2090641/pexels-photo-2090641.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 160px;
-    height: 160px;
+    width: 190px;
+    height: 190px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    border-radius: 10px;
-    margin: 0px 30px 30px 0px;
+    border-radius: 7px;
     cursor: pointer;
     box-shadow: 6px 6px 29px -10px rgba(0,0,0,0.3);
 }
@@ -52,6 +55,6 @@ article h2{
     width: 100%;
     margin: 0;
     padding: 15px;
-    border-bottom-left-radius: 9px;
-    border-bottom-right-radius: 9px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
