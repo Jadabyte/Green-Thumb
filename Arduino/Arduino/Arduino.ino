@@ -24,7 +24,7 @@ void setup()
   //pinMode(RX, INPUT);
   //pinMode(TX, output);
 Serial.begin(9600);
-ASWoutput.begin(115200);
+ASWoutput.begin(9600);
   
   /*serial.begin(115200);  //Start the serial connection with the computer
   //to view the result open the serial monitor
@@ -88,9 +88,9 @@ moistureReading = map (moistureReading, 1023, 0, 0, 100);// map(value, fromLow, 
   Serial.println("===");
   Serial.println(" ");
 
-StringtoESP = String(temperatureC, 0) + String("C ") + String(temperatureF, 0) + String("F ") + String(LSout + " ") + String(moistureReading)+ String("%");
-//Serial.println(StringtoESP);
-ASWoutput.print(temperatureC, 0);
+StringtoESP = String(temperatureC, 0) + String(";") +String(temperatureF, 0) + String(";") + String(LSout) + String(";") + String(moistureReading) + String("$");
+Serial.print(StringtoESP);
+/*ASWoutput.print(temperatureC, 0);
 ASWoutput.println("C");
 
 ASWoutput.print(temperatureF, 0);
@@ -103,9 +103,9 @@ ASWoutput.println("%");
 
   ASWoutput.println(" ");
   ASWoutput.println("===");
-  ASWoutput.println(" ");
+  ASWoutput.println(" ");*/
 
-//ASWoutput.println(StringtoESP);
+ASWoutput.print(StringtoESP);
 
-  delay(5000);
+  delay(33000);
 }
