@@ -36,7 +36,7 @@ main{
     grid-row-gap: 30px;
 }
 article{
-    background-image: url(https://images.pexels.com/photos/2090641/pexels-photo-2090641.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    background-image: url(https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

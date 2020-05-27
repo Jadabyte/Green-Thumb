@@ -2,7 +2,7 @@
 <nav>
     <div id="plants">
         <a href="index.php"><img class="navImg" src="images/nav-01.png" alt="My Plants"></a>
-        <?php if(basename($_SERVER['PHP_SELF']) == "index.php") : ?>
+        <?php if(basename($_SERVER['PHP_SELF']) == "index.php" || basename($_SERVER['PHP_SELF']) == "plantdetails.php") : ?>
             <p>My Plants</p>
         <?php endif; ?>
     </div>
