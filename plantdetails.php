@@ -4,17 +4,9 @@ include_once(__DIR__ . "/nav.inc.php");
 
 if(isset($_POST["data"])){
     if(!empty($_POST["data"])){	//Eigenlijk zouden hier nog andere checks moeten gebeuren
+        var_dump($_POST["data"]);
         $data = null;
         $data = explode(";", $_POST["data"]);
-
-        /*$fp = fopen("log.txt", "a");
-        fprintf($fp, "%s: Volgende data ontvangen '%s'\r\n", date("H:i:s"), $data[0]);
-        fclose($fp);
-        $fp = fopen("db.txt", "w");
-        fwrite($fp,$data[0]."\r\n"); //enter here might be a problem
-        fwrite($fp,$data[1]."\r\n");
-        fwrite($fp,$data[2]."\r\n");
-        fwrite($fp,$data[3]."\r\n");*/
 
         $plantData = new PlantData();
         $plantData->setCelcius($data[0]);
@@ -23,14 +15,10 @@ if(isset($_POST["data"])){
         $plantData->setMoisture($data[3]);
 
         $return = $plantData->addData();
-
-        /*fclose($fp);
-        echo("Data written to file ");
-        echo $data[0] . " " . $data[1] . " " . $data[2] . " " . $data[3] . "\r\n";
-        exit;*/
     }
 }
 $result = PlantData::retrieveData();
+$celcius = $result['celcius'];
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -48,16 +36,20 @@ $result = PlantData::retrieveData();
         <h2 class="plantName">Monstera</h2>
     </header>
     <main>
+        
         <article class="water">
             <h3>Water: <span class="accent">Low</span></h3>
             <div class="articleContent">
                 <img class="icon" src="images/detail-icon-01.png" alt="">
                 <div>
-                    <p class="info">Soil is dry.</p>
+                    <p class="info">
+                        Soil is dry.
+                    </p>
                     <p class="tip">Give 250 ml of water</p>
                 </div>
             </div>
         </article>
+
         <article class="sunlight">
             <h3>Sunlight: <span class="accent">Good</span></h3>
             <div class="articleContent">
@@ -67,15 +59,39 @@ $result = PlantData::retrieveData();
                 </div>
             </div>
         </article>
+
         <article class="temperature">
-            <h3>Temperature: <span class="accent">Good</span></h3>
+            <h3>Temperature: 
+                <span class="accent">
+                    <?php if($celcius > 15 && $celcius < 24) { ?>
+                        Good
+                    <?php }
+                        elseif($celcius < 15) { ?>
+                        Cold
+                    <?php }
+                        else { ?>
+                        Warm
+                    <?php } ?>
+                </span>
+            </h3>
             <div class="articleContent">
                 <img class="icon" src="images/detail-icon-03" alt="">
                 <div>
-                    <p class="info">The temperature in the room is optimal!</p>
+                    <p class="info">
+                        <?php if($celcius > 15 && $celcius < 24) { ?>
+                            The temperature in the room is optimal!
+                        <?php }
+                            elseif($celcius < 15) { ?>
+                            It's too cold, find a warmer spot.
+                        <?php }
+                            else { ?>
+                            It's too warm, find a cooler spot.
+                        <?php } ?>
+                    </p>
                 </div>
             </div>
         </article>
+
     </main>
     <script src="js/details.js"></script>
 </body>

@@ -27,11 +27,12 @@
                 Feel free to pick them up.
                 If you have some basel, I'll gladly trade.
             </p>
-            <div>
-                <a href="">Message</a>
-                <a href="">Claim</a>
+            <div class="buttons">
+                <a class="btn message" href="">Message</a>
+                <a class="btn claim" href="">Claim</a>
             </div>
         </div>
     </main>
+    <a class="createPost" href=""><img src="images/write-post.png" alt="Create a new post"></a>
 </body>
 </html>
