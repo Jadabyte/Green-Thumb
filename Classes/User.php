@@ -121,4 +121,14 @@
 
             return $result;
         }
+        public static function getUser($email){
+            $conn = Db::getConnection();
+
+            $statement = $conn->prepare("select id from users where :email = email");
+            $statement->bindValue(":email", $email);
+
+            $statement->execute();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }
     }

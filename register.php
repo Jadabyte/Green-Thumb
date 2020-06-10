@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once(__DIR__ . "/Classes/User.php");
 
 if($_POST){
@@ -11,6 +11,10 @@ if($_POST){
             $user->setEmail($_POST['reg_email']);
             $user->setPassword($_POST['reg_password']);
             $user->createUser();
+
+            $result = User::getUser($_POST['reg_email']);
+            $_SESSION['userId'] = $result['id'];
+            header("location: index.php");
         }
         else{
             $error = "Your passwords do not match";
@@ -26,6 +30,7 @@ if($_POST){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
     <link rel="stylesheet" href="https://use.typekit.net/ayy1bcm.css">
     <link rel="stylesheet" href="css/register.css">
