@@ -2,18 +2,22 @@
 
 include_once(__DIR__ . "/Classes/User.php");
 
-if(isset($_POST['reg_firstname'])){
+if($_POST){
     try {
-        echo("set");
-        $user = new User;
-        $user->setFirstname($_POST['reg_firstname']);
-        $user->setLastname($_POST['reg_lastname']);
-        $user->setEmail($_POST['reg_email']);
-        $user->setPassword($_POST['reg_password']);
-
-        $user->createUser();
+        if($_POST['reg_password'] == $_POST['passwordConfirm']){
+            $user = new User;
+            $user->setFirstname($_POST['reg_firstname']);
+            $user->setLastname($_POST['reg_lastname']);
+            $user->setEmail($_POST['reg_email']);
+            $user->setPassword($_POST['reg_password']);
+            $user->createUser();
+        }
+        else{
+            $error = "Your passwords do not match";
+        }
     } catch (\Exception $e) {
         $error = $e->getMessage();
+        //var_dump($error);
     }
 }
 
@@ -28,18 +32,21 @@ if(isset($_POST['reg_firstname'])){
     <title>Green Thumb Registration</title>
 </head>
 <body>
-    <header data-state="0">
-        <h1 id="title">Welcome <strong class="accent title">back.</strong></h1>
-        <p id="subHead">Sign in to continue</p>
+    <header data-state="0" <?php if(isset($error)) : ?> style="margin-bottom: 40px" <?php endif ?>>
+        <h1 id="title">Create <strong class="accent title">an account.</strong></h1>
     </header>
     <main id="registerForm">
-        <form id="form" action="landing.php" method="post">
-            <div class="firstname hidden">
+        <form id="form" action="#" method="post">
+            <?php if(isset($error)) : ?>
+                <p style="color: red; margin-top: 0"><?php echo $error ?></p>
+            <?php endif ?>
+            
+            <div class="firstname">
                 <label for="Firstname"></label>
                 <input type="text" id="Firstname" name="reg_firstname" placeholder="Firstname">
             </div>
 
-            <div class="lastname hidden">
+            <div class="lastname">
                 <label for="Lastname"></label>
                 <input type="text" id="Lastname" name="reg_lastname" placeholder="Lastname">
             </div>
@@ -51,13 +58,13 @@ if(isset($_POST['reg_firstname'])){
 
             <div class="password">
                 <label for="Password"></label>
-                <input type="password" id="Password" name="reg_password" placeholder="Password">
-                <p id="forgot">Forgot your password?</p>
+                <input type="password" class="visClass" id="Password" name="reg_password" placeholder="Password">
+                <input type="checkbox" class="toggleVis">
             </div>
 
-            <div class="hidden confirm">
+            <div class="confirm">
                 <label for="PasswordConfirm"></label>
-                <input type="password" id="PasswordConfirm" name="passwordConfirm" placeholder="Confirm Password">
+                <input type="password" class="visClass" id="PasswordConfirm" name="passwordConfirm" placeholder="Confirm Password">
             </div>
 
             <div>
@@ -83,7 +90,7 @@ if(isset($_POST['reg_firstname'])){
     </footer>
 
     <div id="switch">
-        <p id="switchText">If you don't have an account yet, <a id="register" href="#">sign up here.</a></p>
+        <p id="switchText">If you already have an account, <a id="register" href="login.php">log in here.</a></p>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

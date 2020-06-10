@@ -53,6 +53,11 @@ header p{
     background-color: transparent;
     width: 400px;
 }
+.toggleVis{
+    position: absolute;
+    right: 70px;
+}
+
 .img{
     height: 40px;
 }

@@ -2,7 +2,7 @@
     window.location = "landing.php";
 }*/
 $(document).ready(function(){
-    let toggledConfirm = 0
+    /*let toggledConfirm = 0
     let toggled = 0
     let form = $("#form");
     $("#Password").on("input", function(e){
@@ -57,5 +57,17 @@ $(document).ready(function(){
             window.location = "index.php";
         }
         e.preventDefault();
-    });
+    });*/
+    $(".toggleVis").on("click", function(){
+        let visBox = document.querySelector("#Password");
+        let visBox1 = document.querySelector("#PasswordConfirm");
+        if(visBox.type === "password"){
+            visBox.type = "text";
+            visBox1.type = "text";
+        }
+        else{
+            visBox.type = "password";
+            visBox1.type = "password";
+        }
+    })
 });
