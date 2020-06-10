@@ -12,8 +12,9 @@ if($_POST){
             $user->setPassword($_POST['reg_password']);
             $user->createUser();
 
-            $result = User::getUser($_POST['reg_email']);
+            $result = User::fetchUser($_POST['reg_email']);
             $_SESSION['userId'] = $result['id'];
+            
             header("location: index.php");
         }
         else{

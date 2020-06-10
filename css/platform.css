@@ -45,6 +45,7 @@ main{
     width: 100%;
     background-color: #ffffff;
     border-radius: 5px;
+    margin-bottom: 25px;
 }
 .userImg{
     width: 40px;
@@ -94,7 +95,7 @@ main{
     background-color: #FD9872;
     padding: 15px;
     border-radius: 50%;
-    position: absolute;
+    position: fixed;
     right: 30px;
     bottom: 90px;
 }

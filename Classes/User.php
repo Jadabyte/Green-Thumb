@@ -121,7 +121,8 @@
 
             return $result;
         }
-        public static function getUser($email){
+
+        public static function fetchId($email){
             $conn = Db::getConnection();
 
             $statement = $conn->prepare("select id from users where :email = email");
@@ -129,6 +130,26 @@
 
             $statement->execute();
             $result = $statement->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }
+
+        public static function fetchUser($id){
+            $conn = Db::getConnection();
+
+            $statement = $conn->prepare("select * from users where :id = id");
+            $statement->bindValue(":id", $id);
+
+            $statement->execute();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }
+
+        public static function fetchPosts(){
+            $conn = Db::getConnection();
+
+            $statement = $conn->prepare("SELECT * from posts INNER JOIN users ON posts.userId = users.id");
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         }
     }

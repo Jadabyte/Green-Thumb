@@ -1,5 +1,9 @@
 <?php
+    include_once(__DIR__ . "/Classes/User.php");
     include_once(__DIR__ . "/nav.inc.php");
+
+    $id = $_SESSION['userId'];
+    $user = User::fetchUser($id);
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +23,7 @@
         <div id="profMain">
             <div id="profHead">
                 <div id="profPic"></div>
-                <h2>Thomas Anderson</h2>
+                <h2><?php echo($user['firstname'] . " " . $user['lastname']); ?></h2>
             </div>
             <article id="profileLink">
                 <p>See my profile</p>

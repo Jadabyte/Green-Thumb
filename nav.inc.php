@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <link rel="stylesheet" href="css/nav.css">
 <nav>
     <div id="plants">
