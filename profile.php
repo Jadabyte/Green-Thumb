@@ -4,6 +4,7 @@
 
     $id = $_SESSION['userId'];
     $user = User::fetchUser($id);
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,17 +1,18 @@
 <?php
-
+session_start();
 include_once(__DIR__ . "/Classes/User.php");
 
-if(isset($_POST['reg_firstname'])){
+if($_POST){
     try {
-        echo("set");
         $user = new User;
-        $user->setFirstname($_POST['reg_firstname']);
-        $user->setLastname($_POST['reg_lastname']);
-        $user->setEmail($_POST['reg_email']);
-        $user->setPassword($_POST['reg_password']);
+        $user->setEmail($_POST['log_email']);
 
-        $user->createUser();
+        $user->login($_POST['log_password']);
+
+        $result = User::fetchId($_POST['log_email']);
+        $_SESSION['userId'] = $result['id'];
+
+        header("location: index.php");
     } catch (\Exception $e) {
         $error = $e->getMessage();
     }
@@ -34,15 +35,18 @@ if(isset($_POST['reg_firstname'])){
         <p id="subHead">Sign in to continue</p>
     </header>
     <main id="registerForm">
-        <form id="form" action="landing.php" method="post">
+        <form id="form" action="#" method="post">
+            <?php if(isset($error)) : ?>
+                <p style="color: red; margin-top: 0"><?php echo $error ?></p>
+            <?php endif ?>
             <div class="email">
                 <label for="Email"></label>
-                <input type="text" id="Email" name="reg_email" placeholder="Email">
+                <input type="text" id="Email" name="log_email" placeholder="Email" value="<?php if(!empty($_POST['log_email'])){ echo($_POST['log_email']); } ?>">
             </div>
 
             <div class="password">
                 <label for="Password"></label>
-                <input type="password" id="Password" name="reg_password" placeholder="Password">
+                <input type="password" id="Password" name="log_password" placeholder="Password">
                 <p id="forgot">Forgot your password?</p>
             </div>
 

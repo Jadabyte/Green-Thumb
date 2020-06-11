@@ -152,4 +152,44 @@
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         }
+
+        public function checkDuplicate(){
+            $conn = Db::getConnection();
+    
+            $statement = $conn->prepare("select email from users where email = :email");
+    
+            $email = $this->getEmail();
+            $statement->bindValue(":email", $email);
+            $statement->execute();
+
+            if($statement->fetchColumn()){ 
+                throw new Exception("Please use a different email address");
+            }
+        }
+
+        public function login($password){
+            $conn = Db::getConnection();
+    
+            $statement = $conn->prepare("select * from users where email = :email");
+
+            $email = $this->getEmail();
+            $statement->bindValue(":email", $email);
+
+            $statement->execute();
+
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+    
+            if($result){
+                if(password_verify($password, $result['password'])){
+                    return true;
+                } else {
+                    return false;
+                    throw new Exception("Email or Password is incorrect");
+                }
+            } else{
+               return false;
+               throw new Exception("Email or Password is incorrect");
+            }
+    
+        }
     }

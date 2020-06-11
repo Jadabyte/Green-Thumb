@@ -10,9 +10,11 @@ if($_POST){
             $user->setLastname($_POST['reg_lastname']);
             $user->setEmail($_POST['reg_email']);
             $user->setPassword($_POST['reg_password']);
+
+            $user->checkDuplicate();
             $user->createUser();
 
-            $result = User::fetchUser($_POST['reg_email']);
+            $result = User::fetchId($_POST['reg_email']);
             $_SESSION['userId'] = $result['id'];
             
             header("location: index.php");
@@ -49,17 +51,17 @@ if($_POST){
             
             <div class="firstname">
                 <label for="Firstname"></label>
-                <input type="text" id="Firstname" name="reg_firstname" placeholder="Firstname">
+                <input type="text" id="Firstname" name="reg_firstname" placeholder="Firstname" value="<?php if(!empty($_POST['reg_firstname'])){ echo($_POST['reg_firstname']); } ?>">
             </div>
 
             <div class="lastname">
                 <label for="Lastname"></label>
-                <input type="text" id="Lastname" name="reg_lastname" placeholder="Lastname">
+                <input type="text" id="Lastname" name="reg_lastname" placeholder="Lastname" value="<?php if(!empty($_POST['reg_lastname'])){ echo($_POST['reg_lastname']); } ?>">
             </div>
 
             <div class="email">
                 <label for="Email"></label>
-                <input type="text" id="Email" name="reg_email" placeholder="Email">
+                <input type="text" id="Email" name="reg_email" placeholder="Email" value="<?php if(!empty($_POST['reg_email'])){ echo($_POST['reg_email']); } ?>">
             </div>
 
             <div class="password">
