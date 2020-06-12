@@ -1,5 +1,9 @@
 <?php
     include_once(__DIR__ . "/nav.inc.php");
+    include_once(__DIR__ . "/Classes/Plants.php");
+
+    $plants = Plants::fetchAllPlants();
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,17 +21,13 @@
     </header>
 
     <main>
-        <article class="plant" id="montsera" data-name="monstera">
-            <h2 class="plantName">Monstera</h2>
-        </article>
-
-        <article class="plant" data-name="tomato">
-            <h2>Tomato</h2>
-        </article>
-
-        <article class="plant" data-name="basil">
-            <h2>Basil</h2>
-        </article>
+        <?php foreach($plants as $plant) :?>
+            <a class="plantLink" href="plantdetails.php?plant=<?php echo(strtolower($plant['name'])); ?>">
+                <article style="background-image:url(<?php echo($plant['img']); ?>)" class="plant" id="<?php echo($plant['name']); ?>">
+                    <h2 class="plantName"><?php echo($plant['name']); ?></h2>
+                </article>
+            </a>
+        <?php endforeach ?>
     </main>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

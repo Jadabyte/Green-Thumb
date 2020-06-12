@@ -36,19 +36,22 @@ main{
     grid-row-gap: 30px;
 }
 article{
-    background-image: url(https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80);
+    /*background-image: url(https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80);*/
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /*width: 190px;
-    height: 190px;*/
-    height: auto;
+    /*width: 190px;*/
+    height: 190px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     border-radius: 7px;
     cursor: pointer;
     box-shadow: 6px 6px 29px -10px rgba(0,0,0,0.3);
+}
+.plantLink{
+    text-decoration: none;
+    color: #13482B;
 }
 article h2{
     background-color: #ffffff;

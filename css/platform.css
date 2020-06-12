@@ -40,12 +40,16 @@ main{
     width: 85%;
     margin: auto;
     margin-top: 0;
+    text-align: center;
 }
 .post{
     width: 100%;
     background-color: #ffffff;
+    margin: auto;
     border-radius: 5px;
     margin-bottom: 25px;
+    max-width: 500px;
+    text-align: left;
 }
 .userImg{
     width: 40px;

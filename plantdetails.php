@@ -1,6 +1,7 @@
 <?php
 include_once(__DIR__ . "/Classes/PlantData.php");
 include_once(__DIR__ . "/nav.inc.php");
+include_once(__DIR__ . "/Classes/Plants.php");
 
 if(isset($_POST["data"])){
     if(!empty($_POST["data"])){	//Eigenlijk zouden hier nog andere checks moeten gebeuren
@@ -20,6 +21,8 @@ if(isset($_POST["data"])){
 $result = PlantData::retrieveData();
 $celcius = $result['celcius'];
 
+$plant = Plants::fetchPlant($_GET['plant']);
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,9 +35,9 @@ $celcius = $result['celcius'];
     <title><?php ?> Details</title>
 </head>
 <body>
-    <header class="plant" id="montsera" data-name="monstera">
+    <header style="background-image:url(<?php echo($plant['img']); ?>)" class="plant" id="montsera" data-name="monstera">
         <img id="back" src="images/back.png" alt="back">
-        <h2 class="plantName">Monstera</h2>
+        <h2 class="plantName"><?php echo($plant['name']); ?></h2>
     </header>
     <main>
         
