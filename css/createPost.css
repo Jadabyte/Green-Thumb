@@ -1,0 +1,65 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: montserrat, serif;
+    background-color: #F6F6F6;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+header{
+    display: grid;
+    grid-template-columns: 1fr 4fr 3fr;
+    width: 90%;
+    align-items: center;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+#title{
+    color: #13482B;
+    font-family: cardo, serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2.5em;
+    margin: 0;
+    padding: 0;
+    align-self: end;
+}
+.accent{
+    color: #4A8C7A;
+}
+#post{
+    justify-self: end;
+    background-color: #7BBEEA;
+    color: rgba(19, 72, 43, 0.5);
+    text-decoration: none;
+    padding: 10px 30px 10px 30px;
+    border-radius: 30px;
+}
+#profilePhoto{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-image: url(https://images.pexels.com/photos/4599047/pexels-photo-4599047.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    background-size: 100px;
+    background-position: center;
+}
+#textForm{
+    display: flex;
+    width: 90%;
+    margin: auto;
+}
+#postContent{
+    width: 85%;
+    margin-left: 10px;
+    height: 810px;
+    background-color: #F6F6F6;
+    border: none;
+    color: #13482B;
+    font-size: 1.75em;
+    padding-top: 8px;
+    font-family: cardo, serif;
+}

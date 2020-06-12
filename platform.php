@@ -17,7 +17,7 @@
 <body>
     <header>
         <h1 id="title">Share <strong class="accent title">your goods.</strong></h1>
-        <img id="messages" src="images/message.png" alt="Messages">
+        <a id="messages" href="messages.php"><img src="images/message.png" alt="Messages"></a>
     </header>
     <main>
         <?php foreach($posts as $post) : ?>
@@ -37,6 +37,6 @@
             </div>
         <?php endforeach ?>
     </main>
-    <a class="createPost" href=""><img src="images/write-post.png" alt="Create a new post"></a>
+    <a class="createPost" href="createPost"><img src="images/write-post.png" alt="Create a new post"></a>
 </body>
 </html>
