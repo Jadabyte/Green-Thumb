@@ -1,5 +1,20 @@
 <?php
     include_once(__DIR__ . "/nav.inc.php");
+    include_once(__DIR__ . "/Classes/Post.php");
+
+    if($_POST){
+        try {
+            $post = new Post;
+            $post->setContent($_POST['postContent']);
+            $post->setUserId($_SESSION['userId']);
+
+            $result = $post->createPost();
+            
+            header("location: platform.php");
+        } catch (\Exception $e) {
+            $error = $e->getMessage();
+        }
+    }
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,4 +40,11 @@
         </form>
     </main>
 </body>
+<script>
+    document.querySelector("#post").addEventListener("click", function(e){
+        console.log("submitted");
+        document.querySelector("#textForm").submit();
+        e.preventDefault();
+    });
+</script>
 </html>
