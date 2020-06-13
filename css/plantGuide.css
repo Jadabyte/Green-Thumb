@@ -1,0 +1,92 @@
+body{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-family: montserrat, serif;
+    background-color: #F6F6F6;
+    width: 100%;
+}
+header{
+    text-align: left;
+    margin-left: 35px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#title{
+    color: #13482B;
+    font-family: cardo, serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2.5em;
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+}
+.accent{
+    color: #4A8C7A;
+}
+main{
+    width: 100%;
+    margin: auto;
+}
+#divider{
+    width: 90%;
+    background-color: white;
+    height: 50px;
+    margin: auto;
+    border-radius: 30px;
+}
+#season{
+    font-family: cardo, serif;
+    text-align: left;
+    width: 85%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.plantLink{
+    text-decoration: none;
+    color: #13482B;
+}
+.plantCard{
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid #002522;
+}
+.plant{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    grid-column-gap: 20px;
+}
+.plantPhoto{
+    background-image: url(https://images.unsplash.com/photo-1534940519139-f860fb3c6e38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2247&q=80);
+    background-position: center;
+    background-size: cover;
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+}
+.plantInfo{
+    width: 100%;
+    text-align: left;
+}
+.plantInfo h2{
+    font-size: 2em;
+    font-family: Montserrat, serif;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 10px;
+}
+.plantInfo p{
+    font-size: 1.25em;
+    font-family: Montserrat, serif;
+    margin: 0;
+}
+.linkArrow{
+    justify-self: end;
+}

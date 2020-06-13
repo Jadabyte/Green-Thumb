@@ -8,7 +8,6 @@
 
     $messages = Chat::fetchMessages($user1, $user2);
     $user2name = User::fetchUser($_GET['chat']);
-    
     $chatId = $messages[0]['id'];
 
     if($_POST){

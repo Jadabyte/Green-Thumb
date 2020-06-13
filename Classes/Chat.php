@@ -116,6 +116,13 @@
 
             $statement->execute();
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            if(!$result){
+                $statement = $conn->prepare("SELECT users.id, users.firstname, users.lastname, users.userImg, messages.content, messages.date, messages.user_id FROM chat, messages, users WHERE chat.id = messages.chat_Id AND chat.user_id_2 = :user1 AND users.id = chat.user_id_1 GROUP BY users.id");
+                $statement->bindValue(":user1", $user1);
+                $statement->execute();
+                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            }
             
             return $result;
         }
@@ -129,6 +136,14 @@
 
             $statement->execute();
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            
+            if(!$result){
+                $statement = $conn->prepare("SELECT messages.user_id, users.firstname, users.lastname, messages.content, messages.user_id, messages.date, chat.id FROM chat, messages, users WHERE chat.user_id_1 = :user1 AND chat.user_id_2 = :user2 AND users.id = chat.user_id_2");
+                $statement->bindValue(":user1", $user2);
+                $statement->bindValue(":user2", $user1);
+                $statement->execute();
+                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            }
 
             return $result;
         }

@@ -147,7 +147,7 @@
         public static function fetchPosts(){
             $conn = Db::getConnection();
 
-            $statement = $conn->prepare("SELECT * from posts INNER JOIN users ON posts.userId = users.id");
+            $statement = $conn->prepare("SELECT * from posts INNER JOIN users ON posts.userId = users.id ORDER BY posts.id DESC");
             $statement->execute();
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             return $result;

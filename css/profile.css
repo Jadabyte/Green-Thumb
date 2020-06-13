@@ -104,6 +104,10 @@ main{
     width: 60%;
     text-align: left;
 }
+#guideLink{
+    text-decoration: none;
+    color: #13482B;
+}
 #article-01{
     position: relative;
     box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.23);

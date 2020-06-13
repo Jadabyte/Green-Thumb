@@ -23,10 +23,12 @@
         <?php foreach($posts as $post) : ?>
             <div class="post">
                 <div class="postHead">
-                    <img class="userImg" src="https://randomuser.me/api/portraits/women/95.jpg" alt="User Photo">
+                    <div class="userImg" style="background-image:url(<?php echo(htmlspecialchars($post['userImg'])); ?>)"></div>
                     <h3><?php echo($post['firstname'] . " " . $post['lastname']); ?></h3>
                 </div>
-                <img class="postImg" src="https://images.pexels.com/photos/143133/pexels-photo-143133.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Item">
+                <?php if($post['postImg']) : ?>
+                    <div class="postImg" style="background-image: url(<?php echo(htmlspecialchars($post['postImg'])); ?>);"></div>
+                <?php endif ?>
                 <p>
                     <?php echo($post['content']); ?>
                 </p>

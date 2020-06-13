@@ -23,7 +23,7 @@
     <main>
         <div id="profMain">
             <div id="profHead">
-                <div id="profPic"></div>
+                <div id="profPic" style="background-image: url(<?php echo(htmlspecialchars($user['userImg'])); ?>);"></div>
                 <h2><?php echo($user['firstname'] . " " . $user['lastname']); ?></h2>
             </div>
             <article id="profileLink">
@@ -33,6 +33,7 @@
         </div>
 
         <div id="profNav">
+            <a href="plantGuide.php" id="guideLink">
             <div  id="article-01">
                 <article class="profBtn">
                     <img class="navIcon" src="images/prof-nav-01" alt="Plant Guide">
@@ -40,6 +41,7 @@
                     <img class="linkArrow" src="images/nav-arrow" alt="Plant Guide">
                 </article>
             </div>
+            </a>
             <div id="article-02">
                 <article class="profBtn">
                     <img class="navIcon" src="images/prof-nav-02" alt="My Favourites">
