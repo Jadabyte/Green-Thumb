@@ -7,10 +7,15 @@ body{
     width: 100%;
     margin: 0;
     padding: 0;
+    padding-top: 100px;
+    padding-bottom: 120px;
 }
 header{
     width: 100%;
     background-color: #7BBEEA;
+    position: fixed;
+    top: 0;
+    box-shadow: 0px 3px 12px -6px rgba(0,0,0,0.34);
 }
 #head{
     display: grid;
@@ -22,6 +27,9 @@ header{
     padding-bottom: 20px;
     background-color: #7BBEEA;
     font-family: cardo, serif;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 #backLink{
     align-self: center;
@@ -37,17 +45,60 @@ header{
     align-self: center;
     font-size: 2em;
 }
-footer{
+main{
     width: 90%;
+    max-width: 700px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.message{
+    background-color: white;
+    padding: 10px 20px 10px 20px;
+    max-width: 60%;
+    margin-top: 20px;
+}
+.messageUser1{
+    background-color: #7BBEEA;
+    border-radius: 50px 50px 15px 50px;
+    align-self: end;
+}
+.messageUser2{
+    border-radius: 50px 50px 50px 15px;
+    align-self: start;
+}
+footer{
+    width: 100%;
     bottom: 0;
     position: fixed;
     left: 50%;
     transform: translate(-50%, 0);
+    background-color: #F6F6F6;
+    padding-top: 10px;
+    box-shadow: 0px -3px 6px -6px rgba(0,0,0,0.34);
+}
+#msgCreate{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+    align-items: center;
 }
 #msgContent{
-    width: 60%;
-    padding: 20px 50px 20px 20px;
-    border-radius: 30px;
+    width: 70%;
+    padding: 30px 60px 30px 30px;
+    border-radius: 50px;
     border: none;
+}
+#msgSend{
+    background-color: #7BBEEA;
+    background-image: url(../images/send.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+    cursor: pointer;
 }

@@ -136,7 +136,7 @@
         public static function fetchUser($id){
             $conn = Db::getConnection();
 
-            $statement = $conn->prepare("select * from users where :id = id");
+            $statement = $conn->prepare("select * from users where id = :id");
             $statement->bindValue(":id", $id);
 
             $statement->execute();

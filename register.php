@@ -100,8 +100,5 @@ if($_POST){
     <div id="switch">
         <p id="switchText">If you already have an account, <a id="register" href="login.php">log in here.</a></p>
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/register.js"></script>
 </body>
 </html>

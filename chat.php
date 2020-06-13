@@ -27,7 +27,12 @@
                 <div class="msgPic" style="background-image: url(<?php echo($chat['userImg']); ?>);"></div>
                 <div class="msgInfo">
                     <h2 class="msgName"><?php echo(htmlspecialchars($chat['firstname'] . " " . $chat['lastname'])); ?></h2>
-                    <p class="msgContent"><?php echo(htmlspecialchars($chat['content'])); ?></p>
+                    <p class="msgContent"><?php
+                        if($chat['user_id'] == $_SESSION['userId']){
+                            echo("You: ");
+                        }
+                        echo(htmlspecialchars($chat['content'])); 
+                    ?></p>
                 </div>
             </article>
             </a>
