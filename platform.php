@@ -17,7 +17,7 @@
 <body>
     <header>
         <h1 id="title">Share <strong class="accent title">your goods.</strong></h1>
-        <a id="messages" href="messages.php"><img src="images/message.png" alt="Messages"></a>
+        <a id="messages" href="chat.php"><img src="images/message.png" alt="Messages"></a>
     </header>
     <main>
         <?php foreach($posts as $post) : ?>
