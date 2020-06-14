@@ -84,7 +84,7 @@ echo("Date of Measurement: " . $result['time'] . "<br></br>");*/
     </header>
     <main>
         
-        <article class="water">
+        <article class="water plantCard">
             <h3>Water: <span class="accent"><?php echo($waterHead); ?></span></h3>
             <div class="articleContent">
                 <img class="icon" src="images/detail-icon-01.png" alt="">
@@ -96,7 +96,7 @@ echo("Date of Measurement: " . $result['time'] . "<br></br>");*/
             </div>
         </article>
 
-        <article class="sunlight">
+        <article class="sunlight plantCard">
             <h3>Sunlight: <span class="accent"><?php echo($brightnessHead); ?></span></h3>
             <div class="articleContent">
                 <img class="icon" src="images/detail-icon-02" alt="">
@@ -106,7 +106,7 @@ echo("Date of Measurement: " . $result['time'] . "<br></br>");*/
             </div>
         </article>
 
-        <article class="temperature">
+        <article class="temperature plantCard">
             <h3>Temperature: 
                 <span class="accent"><?php echo($tempHead) ?></span>
             </h3>

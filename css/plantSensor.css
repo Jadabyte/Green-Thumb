@@ -49,6 +49,11 @@ article{
     background-color: white;
     height: 135px;
 }
+.plantCard{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 5px;
+}
 article h3{
     margin: 0;
     text-align: left;
