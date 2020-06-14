@@ -6,6 +6,7 @@
         private $lastname;
         private $email;
         private $password;
+        private $userImg;
 
         /**
          * Get the value of firstname
@@ -101,6 +102,26 @@
 
                 return $this;
         }
+        
+        /**
+         * Get the value of userImg
+         */ 
+        public function getUserImg()
+        {
+                return $this->userImg;
+        }
+
+        /**
+         * Set the value of userImg
+         *
+         * @return  self
+         */ 
+        public function setUserImg($userImg)
+        {
+                $this->userImg = $userImg;
+
+                return $this;
+        }
 
         public function createUser(){
             $conn = Db::getConnection();
@@ -192,6 +213,4 @@
             }
     
         }
-
-
     }

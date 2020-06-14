@@ -1,6 +1,10 @@
 <?php
     include_once(__DIR__ . "/nav.inc.php");
     include_once(__DIR__ . "/Classes/Post.php");
+    include_once(__DIR__ . "/Classes/User.php");
+
+    $id = $_SESSION['userId'];
+    $user = User::fetchUser($id);
 
     if($_POST){
         try {
@@ -34,7 +38,7 @@
     </header>
     <main>
         <form id="textForm" action="#" method="post">
-            <div id="profilePhoto"></div>
+            <div style="background-image: url(<?php echo(htmlspecialchars($user['userImg'])); ?>);" id="profilePhoto"></div>
             <label for="postContent"></label>
             <textarea name="postContent" id="postContent" placeholder="Start writing..."></textarea>
         </form>

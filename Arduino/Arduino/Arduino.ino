@@ -1,111 +1,84 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
-//TMP36 Pin Variables
-int sensorPin = 5; 
-//the analog pin the TMP36's Vout (sense) pin is connected to
-//the resolution is 10 mV / degree centigrade with a
-//500 mV offset to allow for negative temperatures
-int photocellPin = 3;     // the cell and 10K pulldown are connected to a0
-int photocellReading;     // the analog reading from the analog resistor divider
-String LSout;
+// These integers define the pin inputs and the variables in which the data needs to be stored, respectively
+int temperaturePin = 5; 
+int tempReading;
+int photocellPin = 3;
+int photocellReading;
 int moisturePin = 1;
 int moistureReading;
-String StringtoESP;
 
-// Define the digital pins to use as RX and TX
+float voltage; // This defines the voltage of the microcontroller to calculate the temperatures
+String StringtoESP; // This variable is used to store the string that will be sent to the ESP
+
+// These define the RX and TX pin for the Arduino, which are used for the serial communication with the ESP
 const int RX = 10;
 const int TX = 11;
 
-SoftwareSerial ASWoutput(RX, TX); // RX, TX
+SoftwareSerial ASWoutput(RX, TX); // This uses the integers to set the pins for serial communication
 
-void setup()
-{
-  //pinMode(RX, INPUT);
-  //pinMode(TX, output);
-Serial.begin(9600);
-ASWoutput.begin(9600);
-  
-  /*serial.begin(115200);  //Start the serial connection with the computer
-  //to view the result open the serial monitor
-  serial.print("Hello, world");*/
+void setup(){
+  Serial.begin(9600); // The baud rate for the serial monitor
+  ASWoutput.begin(9600); // The baud rate for the serial communication with the ESP
 }
 
-void loop()                     // run over and over again
-{
+void loop(){
+/*=============This Code is for the temperature Sensor=============*/
 
-  //getting the voltage reading from the temperature sensor
-   int reading = analogRead(sensorPin);
-  // converting that reading to voltage, for 3.3v arduino use 3.3
-  float voltage = reading * 5.0;
-  voltage /= 1024.0;
-  // print out the voltage
-  //Serial.print(voltage); Serial.println(" volts");
-  // now print out the temperature
-   float temperatureC = (voltage - 0.5) * 100 ;  
-   //converting from 10 mv per degree with 500 mV offset
-  //to degrees ((voltage - 500mV) times 100)
+  tempReading = analogRead(temperaturePin); // This grabs the reading of the temperature sensor
+  
+  voltage = tempReading * 5.0; // Returns usable values from the temperature sensor
+  voltage /= 1024.0; // Divides the voltage by the bit range of the temperature sensor
+  
+  float temperatureC = (voltage - 0.5) * 100 ; // Standard formula to turn the sensor reading into Celcius including a correction for negative temperatures
   Serial.print(temperatureC); Serial.println(" degrees C");
-  // now convert to Fahrenheit
-  float temperatureF = (temperatureC * 9.0 / 5.0) + 32.0;
+  
+  float temperatureF = (temperatureC * 9.0 / 5.0) + 32.0; // Calculates the temperature in Fahrenheit
   Serial.print(temperatureF); Serial.println(" degrees F");
+  
+/*=================================================================*/
 
-  photocellReading = analogRead(photocellPin);
-  Serial.print("Photocell reading = ");
-  Serial.print(photocellReading);     // the raw analog reading
-  // We'll have a few threshholds, qualitatively determined
-  if (photocellReading < 10) {
-Serial.println(" - Dark");
-LSout = String("Dark");
-  } else if (photocellReading < 200) {
-Serial.println(" - Dim");
-LSout = String("Dim");
-  } else if (photocellReading < 500) {
-Serial.println(" - Light");
-LSout = String("Light");
-  } else if (photocellReading < 800) {
-Serial.println(" - Bright");
-LSout = String("Bright");
-  } else {
-Serial.println(" - Very bright");
-LSout = String("Very bright");
-  }
 
-moistureReading = analogRead(moisturePin);
-moistureReading = map (moistureReading, 1023, 0, 0, 100);// map(value, fromLow, fromHigh, toLow, toHigh)
-  /*for (int i = 0; i <= 100; i++) 
-   { 
-     moistureReading = moistureReading + analogRead(moisturePin); 
-     delay(1); 
-   } */
-  Serial.print("Moisture reading = ");
-  //moistureReading = moistureReading / 100.0;
+/*==============This Code is for the light Sensor==================*/
+
+  photocellReading = analogRead(photocellPin); // Grabs the reading of the photocell
+  Serial.print("Photocell reading = "); // Prints the photocell reading to the serial monitor
+  Serial.println(photocellReading);
+
+/*=================================================================*/
+
+
+/*==============This Code is for the moisture Sensor===============*/
+
+  moistureReading = analogRead(moisturePin); // Grabs the reading of the moisture sensor
+  moistureReading = map(moistureReading, 1023, 0, 0, 100); //this function maps the highest and lowest values of the reading and links them to a number between 0 and 100
+  
+  Serial.print("Moisture reading = "); // Prints the moisture reading to the serial monitor
   Serial.print (moistureReading);
   Serial.println ("%");
 
-  
+  // This just creates a break for formatting in the serial monitor
   Serial.println(" ");
   Serial.println("===");
   Serial.println(" ");
 
-StringtoESP = String(temperatureC, 0) + String(";") +String(temperatureF, 0) + String(";") + String(LSout) + String(";") + String(moistureReading) + String("$");
-Serial.print(StringtoESP);
-/*ASWoutput.print(temperatureC, 0);
-ASWoutput.println("C");
+/*=================================================================*/
 
-ASWoutput.print(temperatureF, 0);
-ASWoutput.println("F");
 
-ASWoutput.println(LSout);
+/*==========This Code is for sending the data to the ESP===========*/
 
-ASWoutput.print(moistureReading);
-ASWoutput.println("%");
+  StringtoESP = String(temperatureC, 0) + String(";") // This is where the sensor data is put into a single string for easy transmission to the ESP 
+    + String(temperatureF, 0) + String(";") 
+    + String(photocellReading) + String(";") 
+    + String(moistureReading) + String("$"); // The '$' is used to terminate the string
+    
+  Serial.println(StringtoESP); // Prints the data string to the serial monitor
+  Serial.println(" "); // Another break for formatting
+  Serial.println("===");
+  Serial.println(" ");
+  ASWoutput.print(StringtoESP); // Sends the full string of data to the ESP via serial communication
+  delay(33000); // Wait 33 seconds
 
-  ASWoutput.println(" ");
-  ASWoutput.println("===");
-  ASWoutput.println(" ");*/
-
-ASWoutput.print(StringtoESP);
-
-  delay(33000);
+/*=================================================================*/
 }
