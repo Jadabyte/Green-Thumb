@@ -19,7 +19,6 @@ header{
     font-family: cardo, serif;
     font-weight: bold;
     font-size: 1.5em;
-    margin-bottom: 20px;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
 }
@@ -41,4 +40,57 @@ header{
     font-size: 1.25em;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
+}
+main{
+    text-align: left;
+    width: 100%;
+}
+#careLvl{
+    display: block;
+    width: 85%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.guideBox{
+    background-color: white;
+    width: 100%;
+}
+#planting{
+    width: 85%;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#plantingTitle{
+    margin-bottom: 10px;
+}
+#careCards{
+    width: 100%;
+}
+.cardTitle{
+    font-family: Cardo, serif;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 10px;
+    font-size: 1.75em;
+}
+.subTitle{
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+.infoCard{
+    width: 85%;
+    margin: auto;
+    padding: 10px 0px 10px 0px;
+}
+.cardContent{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 1.25em;
+    color: #015A39;
+    font-family: Montserrat, serif;
+    font-weight: normal;
 }
