@@ -92,6 +92,7 @@ echo("Date of Measurement: " . $result['time'] . "<br></br>");*/
                     <p class="info">
                         <?php echo($waterState); ?>
                     </p>
+                    <p><?php echo($result['moisture'] . "%" . " moisture"); ?></p>
                 </div>
             </div>
         </article>
@@ -102,6 +103,7 @@ echo("Date of Measurement: " . $result['time'] . "<br></br>");*/
                 <img class="icon" src="images/detail-icon-02" alt="">
                 <div>
                     <p class="info"><?php echo($brightnessContent); ?></p>
+                    <p><?php echo($result['light'] . " - " . $brightness); ?></p>
                 </div>
             </div>
         </article>
@@ -114,6 +116,7 @@ echo("Date of Measurement: " . $result['time'] . "<br></br>");*/
                 <img class="icon" src="images/detail-icon-03" alt="">
                 <div>
                     <p class="info"><?php echo($tempContent) ?></p>
+                    <p><?php echo($result['celcius'] . " °C"); ?></p>
                 </div>
             </div>
         </article>
