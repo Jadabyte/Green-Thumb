@@ -55,12 +55,19 @@ article{
     text-decoration: none;
     color: #13482B;
 }
-article h2{
+.plantName{
     background-color: #ffffff;
+    font-family: cardo, serif;
+    font-weight: bold;
     bottom: 0;
     width: 100%;
     margin: 0;
     padding: 15px;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
+}
+#addPlant{
+    background-image: url("../images/addPlant.png");
+    background-position: center;
+    background-size: cover;
 }

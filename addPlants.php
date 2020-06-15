@@ -17,7 +17,7 @@
 </head>
 <body>
     <header>
-        <h1 id="title">My <strong class="accent title">Plants.</strong></h1>
+        <h1 id="title">Add <strong class="accent title">Plants.</strong></h1>
     </header>
 
     <main>

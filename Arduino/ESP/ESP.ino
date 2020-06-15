@@ -10,6 +10,7 @@ extern "C" {
 const int RX = 12;
 const int TX = 13;
 
+int count;
 String output; // Declares the variable used for storage of the data sent from the Arduino
 char endString = '$'; // Sets '$' as the string termination so that the ESP knows where the transmitted data ends
 
@@ -31,11 +32,12 @@ void setup()
   WiFi.begin(ssid, password); // Sets the name and password of the WiFi network
 
   Serial.print("Bezig met connecteren...");
+  count = 1;
   while (WiFi.status() != WL_CONNECTED){ // While waiting for a connection to the internet, a period is printen every half second
     delay(500);
     Serial.print(".");
   }
-  
+
   Serial.println(); // Prints an empty line
 
   Serial.print("Geconnecteerd!\nMijn IP adres: "); // When connected to the internet, this section prints information about the connection
