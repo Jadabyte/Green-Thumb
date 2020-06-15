@@ -1,5 +1,8 @@
 <?php
     include_once(__DIR__ . "/nav.inc.php");
+    include_once(__DIR__ . "/Classes/Plants.php");
+
+    $plants = Plants::fetchAllPlants();
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,18 +22,20 @@
     <main>
         <div id="divider"></div>
         <h2 id="season">In Season</h2>
-        <a href="plantInfo.php?plant=" class="plantLink">
-        <div class="plantCard">
-            <article class="plant">
-                <div class="plantPhoto"></div>
-                <div class="plantInfo">
-                    <h2>Tomato</h2>
-                    <p>Care level: intermediate</p>
-                </div>
-                <img class="linkArrow" src="images/nav-arrow" alt="">
-            </article>
-        </div>
-        </a>
+        <?php foreach ($plants as $plant) : ?>
+            <a href="plantInfo.php?plant=<?php echo($plant['name']); ?>" class="plantLink">
+            <div class="plantCard">
+                <article class="plant">
+                    <div style="background-image: url(<?php echo(htmlspecialchars($plant['img'])); ?>);" class="plantPhoto"></div>
+                    <div class="plantInfo">
+                        <h2><?php echo($plant['name']); ?></h2>
+                        <p>Care level: <?php echo($plant['care']); ?></p>
+                    </div>
+                    <img class="linkArrow" src="images/nav-arrow" alt="">
+                </article>
+            </div>
+            </a>
+        <?php endforeach ?>
     </main>
 </body>
 </html>

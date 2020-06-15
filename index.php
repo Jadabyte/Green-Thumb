@@ -2,7 +2,8 @@
     include_once(__DIR__ . "/nav.inc.php");
     include_once(__DIR__ . "/Classes/Plants.php");
 
-    $plants = Plants::fetchAllPlants();
+    $userId = $_SESSION['userId'];
+    $plants = Plants::fetchAllUserPlants($userId);
 
 ?><!DOCTYPE html>
 <html lang="en">

@@ -19,7 +19,8 @@ if(isset($_POST["data"])){ // Checks if $_POST['data'] exists
 
 $result = PlantData::retrieveData(); // Retrieves the most recent entry from the database
 
-$celcius = $result['celcius'];
+$celcius = $result['celcius']; // Assigns the data from the database to a local variable
+/* These if-else statements compare the data from the database to predetermined parameters */
     if($celcius < 15) { 
         $tempHead = "Low";
         $tempContent = "It's too cold, find a warmer spot";
@@ -32,6 +33,7 @@ $celcius = $result['celcius'];
         $tempHead = "High";
         $tempContent = "It's too warm, find a cooler spot";
     }
+
 $fahrenheit = $result['fahrenheit'];
 
 $light = $result['light'];
@@ -60,13 +62,6 @@ $moisture = $result['moisture'];
         $waterHead = "Normal";
         $waterState = "All good";
     }
-
-/* These print the data onto the webpage */
-/*echo("Celcius: " . $result['celcius'] . "<br></br>");
-echo("Fahrenheit: " . $result['fahrenheit'] . "<br></br>");
-echo("Brightness: " . $result['light'] . " - " . $brightness . "<br></br>");
-echo("Moisture: " . $result['moisture'] . " - " . $waterState . "<br></br>");
-echo("Date of Measurement: " . $result['time'] . "<br></br>");*/
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,7 +71,7 @@ echo("Date of Measurement: " . $result['time'] . "<br></br>");*/
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
     <link rel="stylesheet" href="https://use.typekit.net/ayy1bcm.css">
     <link rel="stylesheet" href="css/plantSensor.css">
-    <title><?php ?> Details</title>
+    <title>Plant Monitor</title>
 </head>
 <body>
     <header class="plant" id="montsera" data-name="monstera">
@@ -84,15 +79,14 @@ echo("Date of Measurement: " . $result['time'] . "<br></br>");*/
     </header>
     <main>
         
+        <!--These three articles all have the same layout, so I'll just do the explanation once-->
         <article class="water plantCard">
-            <h3>Water: <span class="accent"><?php echo($waterHead); ?></span></h3>
+            <h3>Water: <span class="accent"><?php echo($waterHead); ?></span></h3> <!--The title of the info card for water-->
             <div class="articleContent">
-                <img class="icon" src="images/detail-icon-01.png" alt="">
+                <img class="icon" src="images/detail-icon-01.png" alt=""> <!--The icon for the water card-->
                 <div>
-                    <p class="info">
-                        <?php echo($waterState); ?>
-                    </p>
-                    <p><?php echo($result['moisture'] . "%" . " moisture"); ?></p>
+                    <p class="info"><?php echo($waterState); ?></p><!--This displays whether action needs to be taken-->
+                    <p><?php echo($result['moisture'] . "%" . " moisture"); ?></p> <!--Shows the raw data of the measurement-->
                 </div>
             </div>
         </article>
@@ -122,6 +116,5 @@ echo("Date of Measurement: " . $result['time'] . "<br></br>");*/
         </article>
 
     </main>
-    <script src="js/details.js"></script>
 </body>
 </html>

@@ -1,5 +1,8 @@
 <?php
     include_once(__DIR__ . "/nav.inc.php");
+    include_once(__DIR__ . "/Classes/Plants.php");
+
+    $plant = Plants::fetchPlant($_GET['plant']);
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,31 +15,36 @@
     <title>Tomato Info</title>
 </head>
 <body>
-    <header class="plant" id="montsera" data-name="monstera">
+    <header style="background-image: url(<?php echo($plant['img']); ?>);" class="plant" id="montsera" data-name="monstera">
         <a href="plantGuide.php"><img id="back" src="images/back.png" alt="back"></a>
-        <h2 class="plantName">Tomato</h2>
+        <h2 class="plantName"><?php echo($plant['name']); ?></h2>
     </header>
     <main>
-        <p id="careLvl">Care level: intermediate</p>
+        <p id="careLvl">Care level: <?php echo($plant['care']); ?></p>
         <div class="guideBox">
             <div id="planting" class="plantCard">
                 <h2 id="plantingTitle" class="cardTitle">Planting</h2>
-                <p class="cardContent">Use a large pot or container with drainage holes in the bottom. Use loose, well-draining soil. Mix organic matter with a good potting mix. Only plant 1 tomato plant per pot. Keep the soil moist. Place the pot in a sunny spot with 6 to 8 hours of full sun a day.</p>
+                <p class="cardContent"><?php echo($plant['planting']); ?></p>
             </div>
         </div>
         
         <div id="careCards">
+            <?php if($plant['watering']) : ?>
             <div class="infoCard">
                 <h2 class="cardTitle">Care</h2>
                 <h3 class="subTitle">Watering</h3>
-                <p class="cardContent">Water generously the first few days thatthe tomato plant is in the ground.Water well throughout growing season.Give water in the early morning.Add mulch after 5 weeks to retain moistureand to control weeds.</p>
+                <p class="cardContent"><?php echo($plant['watering']); ?></p>
             </div>
+            <?php endif ?>
+            
+            <?php if($plant['fertilizing']) : ?>
             <div class="guideBox">
                 <div class="infoCard">
                     <h3 class="subTitle">Fertilizing</h3>
-                    <p class="cardContent">Water in with a starter fertilizer solution.Side dress the plants with ferilizer or compostevery 2 weeks when tomato fruits areabout 3 cm in diameter.If staking, use soft string to securetomato stem to the stake.</p>
+                    <p class="cardContent"><?php echo($plant['fertilizing']); ?></p>
                 </div>
             </div>
+            <?php endif ?>
         </div>
     </main>
 </body>

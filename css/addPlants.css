@@ -1,0 +1,92 @@
+body{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-family: montserrat, serif;
+    background-color: #F6F6F6;
+    margin: 0;
+    width: 100%;
+}
+header{
+    text-align: left;
+    width: 85%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#title{
+    color: #13482B;
+    font-family: cardo, serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2.5em;
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+}
+.accent{
+    color: #4A8C7A;
+}
+main{
+    width: 85%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 45%);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    max-width: 500px;
+    margin-top: 0;
+}
+article{
+    /*background-image: url(https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80);*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /*width: 190px;*/
+    height: 190px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: 6px 6px 29px -10px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+}
+.plantLink{
+    text-decoration: none;
+    color: #13482B;
+}
+.plantName{
+    background-color: #ffffff;
+    font-family: cardo, serif;
+    font-weight: bold;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+#addPlant{
+    background-image: url("../images/addPlant.png");
+    background-position: center;
+    background-size: cover;
+}
+#submitContain{
+    position: fixed;
+    width: 100%;
+    bottom: 75px;
+    margin: auto;
+}
+#submit{
+    color: #13482B;
+    background-color: #7BBEEA;
+    border: #7BBEEA;
+    padding: 15px 40px 15px 40px;
+    border-radius: 25px;
+    cursor: pointer;
+    position: relative;
+}
+#addPlantsForm{
+    display: none;
+}

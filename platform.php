@@ -33,12 +33,15 @@
                     <?php echo($post['content']); ?>
                 </p>
                 <div class="buttons">
-                    <a class="btn message" href="">Message</a>
-                    <a class="btn claim" href="">Claim</a>
+                    <a class="btn message" href="chat.php">Message</a>
+                    <a class="btn claim" href="" data-claim="0">Claim</a>
                 </div>
             </div>
         <?php endforeach ?>
     </main>
     <a class="createPost" href="createPost"><img src="images/write-post.png" alt="Create a new post"></a>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/platform.js"></script>
 </body>
 </html>
